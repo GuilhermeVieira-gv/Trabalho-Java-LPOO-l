@@ -24,5 +24,6 @@ public class Van{
     }
     
     double getValorDiariaLocacao(){
+        return 0;
     }  
 }

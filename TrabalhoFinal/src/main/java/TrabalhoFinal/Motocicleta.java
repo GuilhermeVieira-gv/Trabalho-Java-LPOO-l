@@ -24,5 +24,6 @@ public class Motocicleta{
     }
     
     double getValorDiariaLocacao(){
+        return 0;
     }  
 }

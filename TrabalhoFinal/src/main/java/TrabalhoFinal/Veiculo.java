@@ -46,21 +46,27 @@ public class Veiculo{
     }
     
     public Estado getEstado(){
+        return null;
     }
     
     public Marca getMarca(){
+        return null;
     }
     
     public Categoria getCategoria(){
+        return null;
     }
     
     public Locacao getLocacao(){
+        return null;
     }
     
     public String getPlaca(){
+        return null;
     }
     
     public int getAno(){
+        return 0;
     }
     
     public double getValorParaVenda(){
@@ -68,9 +74,16 @@ public class Veiculo{
     //valorParaVenda = valorDeCompra – idadeVeiculoEmAnos*0,15*valorDeCompra
     //Se o resultado for menor do que 10% do valorDeCompra ou negative, então
     // varlorParaVenda = valorDeCompra*0,1
+        return 0;
+        //Método que calcula um valor para venda. Utilizar o seguinte cálculo:
+    //valorParaVenda = valorDeCompra – idadeVeiculoEmAnos*0,15*valorDeCompra
+    //Se o resultado for menor do que 10% do valorDeCompra ou negative, então
+    // varlorParaVenda = valorDeCompra*0,1
     }
     
     public double getValorDiariaLocacao(){
+        //Método que será abstrato na classe Veiculo
+        return 0;
         //Método que será abstrato na classe Veiculo
     }
   
