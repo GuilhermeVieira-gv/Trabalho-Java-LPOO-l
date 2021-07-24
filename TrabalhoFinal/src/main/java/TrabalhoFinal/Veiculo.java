@@ -41,6 +41,7 @@ public class Veiculo{
     public Categoria getCategoria() {
         return categoria;
     }
+<<<<<<< HEAD
 
     public Locacao getLocacao() {
         return locacao;
@@ -66,6 +67,31 @@ public class Veiculo{
 
     public void vender(){
         //Muda estado para VENDIDO e nï¿½o pode mais ser alugado
+=======
+    
+    public Estado getEstado(){
+        return null;
+    }
+    
+    public Marca getMarca(){
+        return null;
+    }
+    
+    public Categoria getCategoria(){
+        return null;
+    }
+    
+    public Locacao getLocacao(){
+        return null;
+    }
+    
+    public String getPlaca(){
+        return null;
+    }
+    
+    public int getAno(){
+        return 0;
+>>>>>>> 472ad39f3716b1e7101870bfadfbd4dd6a795600
     }
 
     public void devolver(){
@@ -77,10 +103,21 @@ public class Veiculo{
     //valorParaVenda = valorDeCompra ï¿½ idadeVeiculoEmAnos*0,15*valorDeCompra
     //Se o resultado for menor do que 10% do valorDeCompra ou negative, entï¿½o
     // varlorParaVenda = valorDeCompra*0,1
+        return 0;
+        //Método que calcula um valor para venda. Utilizar o seguinte cálculo:
+    //valorParaVenda = valorDeCompra – idadeVeiculoEmAnos*0,15*valorDeCompra
+    //Se o resultado for menor do que 10% do valorDeCompra ou negative, então
+    // varlorParaVenda = valorDeCompra*0,1
     }
     
     public double getValorDiariaLocacao(){
+<<<<<<< HEAD
         //Mï¿½todo que serï¿½ abstrato na classe Veiculo
+=======
+        //Método que será abstrato na classe Veiculo
+        return 0;
+        //Método que será abstrato na classe Veiculo
+>>>>>>> 472ad39f3716b1e7101870bfadfbd4dd6a795600
     }
   
 }
