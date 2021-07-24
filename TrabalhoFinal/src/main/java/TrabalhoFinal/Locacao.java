@@ -24,8 +24,7 @@ public class Locacao {
         this.cliente = cliente;
     }
     
-    
-    
+
     double getValor(){
         return valor;
     }

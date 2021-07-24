@@ -16,7 +16,7 @@ public class Veiculo{
     Estado estado;
     Categoria categoria;
     Locacao locacao;
-    double valorDeCompra;
+    double valorDeCompra; // pq estamos usando valorDeCompra e nÃ£o valorParaVenda como o mÃ©todo lÃ¡ em baixo?
     String placa;
     int ano;
 
@@ -29,49 +29,58 @@ public class Veiculo{
         this.placa = placa;
         this.ano = ano;
     }
-    
-    
-    
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Locacao getLocacao() {
+        return locacao;
+    }
+
+    public double getValorDeCompra() {  // CRIAMOS ESTE METODO PRA USAR NO MODELOTABELA VEICULO E TB NO METODO GET VALOR PARA VENDA
+        return valorDeCompra;
+    }
+
+    public String getPlaca(){
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+
     public void locar (int dias, Calendar data, Cliente cliente){
-        //Muda estado para LOCADO. Cria uma instância de Locacao e armazena no atributo
-        //locacao. Chama o método getValorDiariaLocacao para calcular o valor da locação.
+        //instanciar locacao aqui
+        //Muda estado para LOCADO. Cria uma instï¿½ncia de Locacao e armazena no atributo
+        //locacao. Chama o mï¿½todo getValorDiariaLocacao para calcular o valor da locaï¿½ï¿½o.
     }
-    
+
     public void vender(){
-        //Muda estado para VENDIDO e não pode mais ser alugado
+        //Muda estado para VENDIDO e nï¿½o pode mais ser alugado
     }
-    
+
     public void devolver(){
         //Muda estado para DISPONIVEL
     }
-    
-    public Estado getEstado(){
-    }
-    
-    public Marca getMarca(){
-    }
-    
-    public Categoria getCategoria(){
-    }
-    
-    public Locacao getLocacao(){
-    }
-    
-    public String getPlaca(){
-    }
-    
-    public int getAno(){
-    }
-    
+
     public double getValorParaVenda(){
-        //Método que calcula um valor para venda. Utilizar o seguinte cálculo:
-    //valorParaVenda = valorDeCompra – idadeVeiculoEmAnos*0,15*valorDeCompra
-    //Se o resultado for menor do que 10% do valorDeCompra ou negative, então
+        //Mï¿½todo que calcula um valor para venda. Utilizar o seguinte cï¿½lculo:
+    //valorParaVenda = valorDeCompra ï¿½ idadeVeiculoEmAnos*0,15*valorDeCompra
+    //Se o resultado for menor do que 10% do valorDeCompra ou negative, entï¿½o
     // varlorParaVenda = valorDeCompra*0,1
     }
     
     public double getValorDiariaLocacao(){
-        //Método que será abstrato na classe Veiculo
+        //Mï¿½todo que serï¿½ abstrato na classe Veiculo
     }
   
 }
