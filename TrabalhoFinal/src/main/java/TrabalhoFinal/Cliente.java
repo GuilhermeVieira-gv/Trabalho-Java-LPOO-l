@@ -5,17 +5,32 @@
  */
 package TrabalhoFinal;
 
+
 /**
  *
  * @author Rafael
  */
-public class Cliente {
+public class Cliente{
+
     String nome;
     String sobreNome;
     String rg;
     String cpf;
     String endereco;
 
+    public Cliente() {
+    }
+
+    
+    public Cliente(String nome, String sobreNome, String rg, String cpf, String endereco) {
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.endereco = endereco;
+    }
+
+    
     public String getCpf() {
         return cpf;
     }
@@ -58,7 +73,7 @@ public class Cliente {
     
     
 
-    void incluir(){       
+   /* void incluir(){       
     }
 
     void atualizar(){
@@ -68,5 +83,6 @@ public class Cliente {
     }
 
     void listar(){
-    }
+    }*/
 }
+        
