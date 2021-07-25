@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTabelaCliente extends AbstractTableModel {
 
-   private String[] colunas= new String[]{"Nome", "Sobrenome", "RG","CPF", "Endereco"};
+   private String[] colunas= new String[]{"Nome", "Sobrenome", "CPF","RG", "Endereco"};
    private List<Cliente> lista = new ArrayList();
 
  
@@ -68,13 +68,13 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         this.fireTableRowsDeleted(linha,linha);//update JTable
         return result;
     }
-// inserido extra pela ni - tentando fazer edição do cliente
+/* inserido extra pela ni - tentando fazer edição do cliente
     public boolean atualizarCliente(Cliente cliente){
         int linha = this.lista.indexOf(cliente);
         boolean result = this.lista.add(cliente);// não sei usar o lista.add
         this.fireTableRowsUpdated(linha,linha);
         return result;
-    }
+    }*/
    
    
     public void atualizarTabela(List<Cliente> lista){
@@ -93,6 +93,10 @@ public class ModeloTabelaCliente extends AbstractTableModel {
 
     public Cliente getCliente(int linha){
         return lista.get(linha);
+    }
+
+    Cliente getCliente(Cliente selecionado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

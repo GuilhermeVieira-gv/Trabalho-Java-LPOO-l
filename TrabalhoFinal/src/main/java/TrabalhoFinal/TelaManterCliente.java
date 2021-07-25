@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class TelaManterCliente extends javax.swing.JFrame {
     private Cliente selecionado = null;
+    private int linhaClicada=-1;
     private ModeloTabelaCliente modeloCliente = new  ModeloTabelaCliente();// Inserindo o modelo da tabela 
     
     /**
@@ -63,7 +64,6 @@ public class TelaManterCliente extends javax.swing.JFrame {
 
         jLabel3.setText("Nome");
 
-        nome.setText("jTextField1");
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
@@ -72,34 +72,30 @@ public class TelaManterCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Sobrenome");
 
-        sobreNome.setText("jTextField1");
         sobreNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sobreNomeActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("RG");
+        jLabel5.setText("CPF");
 
-        jLabel6.setText("CPF");
+        jLabel6.setText("RG");
 
         jLabel7.setText("Endereço");
 
-        rg.setText("jTextField3");
         rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rgActionPerformed(evt);
             }
         });
 
-        cpf.setText("jTextField4");
         cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpfActionPerformed(evt);
             }
         });
 
-        endereco.setText("jTextField5");
         endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enderecoActionPerformed(evt);
@@ -230,16 +226,17 @@ public class TelaManterCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_sobreNomeActionPerformed
 
     private void atualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarClienteActionPerformed
-        modeloCliente.atualizarCliente(selecionado);
-        nome.setText(selecionado.getNome());
-        sobreNome.setText(selecionado.getSobreNome());
-        cpf.setText(selecionado.getCpf());
-        rg.setText(selecionado.getRg());
-        endereco.setText(selecionado.getEndereco());
-       
-            //Atualiza tabela
-        
-            modeloCliente.atualizarCliente(selecionado);
+       if(linhaClicada != -1){
+            Cliente c = modeloCliente.getCliente(linhaClicada);
+            c.setNome(nome.getText());
+            c.setSobreNome(sobreNome.getText());
+            c.setRg(rg.getText());
+            c.setCpf(cpf.getText());
+            c.setEndereco(endereco.getText());
+
+            modeloCliente.fireTableRowsUpdated(linhaClicada, linhaClicada);
+    
+       }
     }//GEN-LAST:event_atualizarClienteActionPerformed
 
     private void adicionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionaClienteActionPerformed
@@ -276,7 +273,10 @@ public class TelaManterCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_removeClienteActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-      Cliente c = modeloCliente.getCliente(tabela.getSelectedRow());
+        linhaClicada = tabela.rowAtPoint(evt.getPoint());
+        Cliente cl  = modeloCliente.getCliente(linhaClicada);
+        
+        Cliente c = modeloCliente.getCliente(tabela.getSelectedRow());
       
         nome.setText(c.getNome());
         sobreNome.setText(c.getSobreNome());
