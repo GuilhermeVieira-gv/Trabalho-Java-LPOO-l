@@ -230,16 +230,16 @@ public class TelaManterCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_sobreNomeActionPerformed
 
     private void atualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarClienteActionPerformed
-      
-        modeloCliente.removeCliente(selecionado);
+        modeloCliente.atualizarCliente(selecionado);
+        nome.setText(selecionado.getNome());
+        sobreNome.setText(selecionado.getSobreNome());
+        cpf.setText(selecionado.getCpf());
+        rg.setText(selecionado.getRg());
+        endereco.setText(selecionado.getEndereco());
        
-        nome.setText(nome.getText());
-        sobreNome.setText(sobreNome.getText());
-        cpf.setText(cpf.getText());
-        rg.setText(rg.getText());
-        endereco.setText(endereco.getText());
-       
+            //Atualiza tabela
         
+            modeloCliente.atualizarCliente(selecionado);
     }//GEN-LAST:event_atualizarClienteActionPerformed
 
     private void adicionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionaClienteActionPerformed
