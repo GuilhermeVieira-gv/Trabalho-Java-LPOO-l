@@ -68,13 +68,21 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         this.fireTableRowsDeleted(linha,linha);//update JTable
         return result;
     }
-
+// inserido extra pela ni - tentando fazer edição do cliente
+    public boolean atualizarCliente(Cliente cliente){
+        int linha = this.lista.indexOf(cliente);
+        boolean result = this.lista.add(cliente);// não sei usar o lista.add
+        this.fireTableRowsUpdated(linha,linha);
+        return result;
+    }
+   
+   
     public void atualizarTabela(List<Cliente> lista){
         this.lista = new ArrayList();
         this.lista.addAll(lista);
         this.fireTableDataChanged();
     }
-
+    
     public void limpaTabela() {
         int indice = lista.size()-1;
         if(indice<0)
@@ -86,7 +94,7 @@ public class ModeloTabelaCliente extends AbstractTableModel {
     public Cliente getCliente(int linha){
         return lista.get(linha);
     }
-  
+
     
 }
  

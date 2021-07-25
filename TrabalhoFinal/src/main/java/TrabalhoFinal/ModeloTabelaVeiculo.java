@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTabelaVeiculo extends AbstractTableModel {
 
-    private String[] colunas= new String[]{"Marca", "Estado", "Categoria", "Locação", "Valor de Compra", "Placa", "Ano"};
+    private String[] colunas= new String[]{"Marca", "Estado", "Categoria", "Locacao", "Valor de Compra", "Placa", "Ano"};
     private List<Veiculo> lista = new ArrayList();
 
 
