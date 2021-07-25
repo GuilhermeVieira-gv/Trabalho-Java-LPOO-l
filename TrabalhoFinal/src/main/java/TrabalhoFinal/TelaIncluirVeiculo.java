@@ -20,6 +20,10 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
         loadComboBox();
         loadComboBoxEstado();
         LoadComboBoxCategoria();
+        loadComboBoxModeloAutomovel();
+        loadComboBoxModeloMotocicleta();
+        loadComboBoxModeloVan();
+     
     }
 
     /**
@@ -31,6 +35,10 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -43,9 +51,16 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
         cbxMarca = new javax.swing.JComboBox<>();
         cbxEstado = new javax.swing.JComboBox<>();
         cbxCategoria = new javax.swing.JComboBox<>();
-        Modelo = new javax.swing.JComboBox<>();
         ValorCompra = new javax.swing.JTextField();
         Placa = new javax.swing.JTextField();
+        btAutomovel = new javax.swing.JRadioButton();
+        btMotocicleta = new javax.swing.JRadioButton();
+        btVan = new javax.swing.JRadioButton();
+        cbxAutomovel = new javax.swing.JComboBox<>();
+        cbxMotocicleta = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        cbxVan = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +79,7 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
 
         jLabel6.setText("Categoria");
 
-        jLabel7.setText("Modelo");
+        jLabel7.setText("Modelo Automovel");
 
         jLabel8.setText("Valor de Compra");
 
@@ -85,14 +100,56 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
         });
 
         cbxCategoria.setToolTipText("");
-
-        Modelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCategoriaActionPerformed(evt);
+            }
+        });
 
         ValorCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ValorCompraActionPerformed(evt);
             }
         });
+
+        buttonGroup1.add(btAutomovel);
+        btAutomovel.setText("Automóvel");
+        btAutomovel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAutomovelActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(btMotocicleta);
+        btMotocicleta.setText("Motocicleta");
+        btMotocicleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMotocicletaActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(btVan);
+        btVan.setText("Van");
+        btVan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVanActionPerformed(evt);
+            }
+        });
+
+        cbxAutomovel.setEnabled(false);
+        cbxAutomovel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxAutomovelActionPerformed(evt);
+            }
+        });
+
+        cbxMotocicleta.setEnabled(false);
+
+        jLabel10.setText("Modelo Motocicleta");
+
+        cbxVan.setEnabled(false);
+
+        jLabel11.setText("Modelo Van ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,45 +161,70 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 3, Short.MAX_VALUE)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ValorCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(337, 337, 337))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Placa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxVan, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxMotocicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(btAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btMotocicleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btVan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ValorCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Placa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel7)
+                                .addGap(27, 27, 27)
+                                .addComponent(cbxAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(237, 237, 237))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(260, 260, 260))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,7 +234,12 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(41, 41, 41)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btAutomovel)
+                    .addComponent(btMotocicleta)
+                    .addComponent(btVan))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,15 +247,19 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cbxAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(cbxMotocicleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(cbxVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(ValorCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,9 +267,9 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(Placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addGap(29, 29, 29))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,6 +287,38 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
     private void cbxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEstadoActionPerformed
+
+    private void btAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAutomovelActionPerformed
+       if (btAutomovel.isSelected()){
+           cbxAutomovel.setEnabled(true);
+           cbxMotocicleta.setEnabled(false);
+           cbxVan.setEnabled(false);
+       }
+    }//GEN-LAST:event_btAutomovelActionPerformed
+
+    private void btMotocicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMotocicletaActionPerformed
+        if (btMotocicleta.isSelected()){
+           cbxAutomovel.setEnabled(false);
+           cbxMotocicleta.setEnabled(true);
+           cbxVan.setEnabled(false);
+       }
+    }//GEN-LAST:event_btMotocicletaActionPerformed
+
+    private void btVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVanActionPerformed
+         if (btVan.isSelected()){
+           cbxAutomovel.setEnabled(false);
+           cbxMotocicleta.setEnabled(false);
+           cbxVan.setEnabled(true);
+       }
+    }//GEN-LAST:event_btVanActionPerformed
+      
+    private void cbxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxCategoriaActionPerformed
+
+    private void cbxAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAutomovelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxAutomovelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,14 +359,25 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Modelo;
     private javax.swing.JTextField Placa;
     private javax.swing.JTextField ValorCompra;
+    private javax.swing.JRadioButton btAutomovel;
+    private javax.swing.JRadioButton btMotocicleta;
+    private javax.swing.JRadioButton btVan;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JComboBox<ModeloAutomovel> cbxAutomovel;
     private javax.swing.JComboBox<Categoria> cbxCategoria;
     private javax.swing.JComboBox<Estado> cbxEstado;
     private javax.swing.JComboBox<Marca> cbxMarca;
+    private javax.swing.JComboBox<ModeloMotocicleta> cbxMotocicleta;
+    private javax.swing.JComboBox<ModeloVan> cbxVan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -264,4 +398,34 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
     private void LoadComboBoxCategoria() {
         cbxCategoria.setModel(new DefaultComboBoxModel<>(Categoria.values()));
     }
+
+   /* private void LoadComboBoxModelo() {
+        cbxModelo.setModel(new DefaultComboBoxModel<>(ModeloAutomovel.values()));
+        cbxModelo.setModel(new DefaultComboBoxModel<>(ModeloVan.values()));
+        cbxModelo.setModel(new DefaultComboBoxModel<>(ModeloMotocicleta.values()));
+        
+         if (btAutomovel.isSelected()){
+         cbxModelo.setModel(new DefaultComboBoxModel<>(ModeloAutomovel.values()));
+    
+    
+         cbx.setModel( new DefaultComboBoxModel<>(ModeloAutomovel.values()));
+        cbx.setModel( new DefaultComboBoxModel<>(ModeloMotocicleta.values()));
+        cbx.setModel( new DefaultComboBoxModel<>(ModeloVan.values()));
+         }
+    }*/
+
+    private void loadComboBoxModeloAutomovel() {
+      
+           cbxAutomovel.setModel(new DefaultComboBoxModel<>(ModeloAutomovel.values()));
+       
+    }
+
+    private void loadComboBoxModeloMotocicleta() {
+        cbxMotocicleta.setModel(new DefaultComboBoxModel<>(ModeloMotocicleta.values()));
+    }
+
+    private void loadComboBoxModeloVan() {
+        cbxVan.setModel(new DefaultComboBoxModel<>(ModeloVan.values()));
+    }
+
 }

@@ -55,3 +55,8 @@ TrabalhoFinal/TelaIncluirVeiculo.java
  TrabalhoFinal.TelaIncluirVeiculo$2
  TrabalhoFinal.TelaIncluirVeiculo$3
  TrabalhoFinal.TelaIncluirVeiculo$4
+ TrabalhoFinal.TelaIncluirVeiculo$5
+ TrabalhoFinal.TelaIncluirVeiculo$6
+ TrabalhoFinal.TelaIncluirVeiculo$7
+ TrabalhoFinal.TelaIncluirVeiculo$8
+ TrabalhoFinal.TelaIncluirVeiculo$9
