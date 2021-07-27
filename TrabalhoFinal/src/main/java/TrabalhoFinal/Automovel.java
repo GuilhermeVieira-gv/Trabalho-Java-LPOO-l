@@ -23,13 +23,6 @@ public class Automovel extends Veiculo{
     
     void getModelo(){
     }
-    
-    
-    //add override por Ni para consegui executar
-    @Override
-    public double getValorDiariaLocacao(){
    
-        return 0;
-   
-    }  
+ 
 }

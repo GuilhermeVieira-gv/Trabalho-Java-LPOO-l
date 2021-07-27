@@ -9,21 +9,20 @@ package TrabalhoFinal;
  *
  * @author Rafael
  */
-public class Motocicleta{
+public class Motocicleta extends Veiculo{
     ModeloMotocicleta modelo;
     double ValorDiariaLocacao;
 
-    public Motocicleta(ModeloMotocicleta modelo, double ValorDiariaLocacao) {
+    public Motocicleta(ModeloMotocicleta modelo, double ValorDiariaLocacao, Marca marca, Estado estado, Categoria categoria, Locacao locacao, double valorDeCompra, String placa, int ano) {
+        super(marca, estado, categoria, locacao, valorDeCompra, placa, ano);
         this.modelo = modelo;
         this.ValorDiariaLocacao = ValorDiariaLocacao;
     }
+
+
     
-    
-    
+ 
     void getModelo(){
     }
-    
-    double getValorDiariaLocacao(){
-        return 0;
-    }  
+     
 }

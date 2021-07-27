@@ -26,7 +26,9 @@ public class Veiculo{
         return marca;
     }
 
-    public Estado getEstado() { return estado; }
+    public Estado getEstado() { 
+        return estado; 
+   }
 
     public Categoria getCategoria() {
         return categoria;
@@ -47,7 +49,6 @@ public class Veiculo{
     public int getAno() {
         return ano;
     }
-
 
     public void locar (int dias, Calendar data, Cliente cliente){
         //instanciar locacao aqui
