@@ -10,16 +10,15 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum ModeloAutomovel {
-    GOL(1), CELTA (2), PALIO(3);
+    GOL, CELTA , PALIO;
    
-    private int valor;
-    
-    private ModeloAutomovel(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-    
 }
+    
+/*
+    public String getValor() {
+        int i = this.valor;
+        String str = i.toString();
+        return str;
+    }
+    
+}*/

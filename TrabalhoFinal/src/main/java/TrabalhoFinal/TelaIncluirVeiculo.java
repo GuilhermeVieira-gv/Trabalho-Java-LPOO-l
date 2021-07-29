@@ -333,7 +333,7 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
 
     private void btAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAutomovelActionPerformed
        if (btAutomovel.isSelected()){
-           cbxAutomovel.setEnabled(true);
+           modelo.setEnabled(true);
            cbxMotocicleta.setEnabled(false);
            cbxVan.setEnabled(false);
        }
@@ -341,7 +341,7 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
 
     private void btMotocicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMotocicletaActionPerformed
         if (btMotocicleta.isSelected()){
-           cbxAutomovel.setEnabled(false);
+           modelo.setEnabled(false);
            cbxMotocicleta.setEnabled(true);
            cbxVan.setEnabled(false);
        }
@@ -349,7 +349,7 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
 
     private void btVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVanActionPerformed
          if (btVan.isSelected()){
-           cbxAutomovel.setEnabled(false);
+           modelo.setEnabled(false);
            cbxMotocicleta.setEnabled(false);
            cbxVan.setEnabled(true);
        }
@@ -458,20 +458,20 @@ public class TelaIncluirVeiculo extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void loadComboBox() {
-       cbxMarca.setModel(new DefaultComboBoxModel<>(Marca.values()));
+      // cbxMarca.setModel(new DefaultComboBoxModel<>(Marca.values()));
     }
 
     private void loadComboBoxEstado() {
-        cbxEstado.setModel(new DefaultComboBoxModel<>(Estado.values()));
+      //  cbxEstado.setModel(new DefaultComboBoxModel<>(Estado.values()));
     }
 
     private void LoadComboBoxCategoria() {
-        cbxCategoria.setModel(new DefaultComboBoxModel<>(Categoria.values()));
+       // cbxCategoria.setModel(new DefaultComboBoxModel<>(Categoria.values()));
     }
     
     private void loadComboBoxModeloAutomovel() {
       
-           cbxAutomovel.setModel(new DefaultComboBoxModel<>(ModeloAutomovel.values()));
+          // cbxAutomovel.setModel(new DefaultComboBoxModel<>(ModeloAutomovel.values()));
        
     }
 
