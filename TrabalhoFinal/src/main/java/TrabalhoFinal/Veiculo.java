@@ -4,7 +4,7 @@ import java.util.Calendar;
  *
  * @author Rafael
  */
-public class Veiculo{
+public abstract class Veiculo implements VeiculoI {
     Marca marca;
     Estado estado;
     Categoria categoria;
@@ -22,18 +22,22 @@ public class Veiculo{
         this.ano = ano;
     }
 
+    @Override
     public Marca getMarca() {
         return marca;
     }
 
+    @Override
     public Estado getEstado() { 
         return estado; 
    }
 
+    @Override
     public Categoria getCategoria() {
         return categoria;
     }
 
+    @Override
     public Locacao getLocacao() {
         return locacao;
     }
@@ -42,40 +46,46 @@ public class Veiculo{
         return valorDeCompra;
     }
 
+    @Override
     public String getPlaca(){
         return null;
     }
 
+    @Override
     public int getAno() {
         return ano;
     }
 
+    @Override
     public void locar (int dias, Calendar data, Cliente cliente){
         //instanciar locacao aqui
         //Muda estado para LOCADO. Cria uma inst?ncia de Locacao e armazena no atributo
         //locacao. Chama o m?todo getValorDiariaLocacao para calcular o valor da loca??o.
     }
 
+    @Override
     public void vender(){
         //Muda estado para VENDIDO e n?o pode mais ser alugado
     }
 
+    @Override
     public void devolver(){
         //Muda estado para DISPONIVEL
     }
 
-    public double getValorParaVenda(){
-        //M?todo que calcula um valor para venda. Utilizar o seguinte c?lculo:
-    //valorParaVenda = valorDeCompra ? idadeVeiculoEmAnos*0,15*valorDeCompra
-    //Se o resultado for menor do que 10% do valorDeCompra ou negative, ent?o
-    // varlorParaVenda = valorDeCompra*0,1
-        return 0;
+    @Override
+    public double getValorParaVenda() {
+    double valorVenda = this.valorDeCompra - (((2021 - ano) * 0.15) * valorDeCompra);
+    double percentageCompra10PerCent = (this.valorDeCompra - (this.valorDeCompra * 0.9));
+
+    if (valorVenda < percentageCompra10PerCent || valorVenda < 0) {
+    valorVenda = this.valorDeCompra * 0.1;
     }
+
+    return valorVenda;
+}
     
-    public double getValorDiariaLocacao(){
-        //M?todo que ser? abstrato na classe Veiculo
-        return 0;
-  
-    }
+    @Override
+    public abstract double getValorDiariaLocacao();
   
 }

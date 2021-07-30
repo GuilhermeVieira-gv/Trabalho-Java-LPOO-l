@@ -10,17 +10,37 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public class Van extends Veiculo {
-    ModeloVan modelo;
-    double ValorDiariaLocacao;
+    private  ModeloVan modelo;
+  
 
-    public Van(ModeloVan modelo, double ValorDiariaLocacao, Marca marca, Estado estado, Categoria categoria, Locacao locacao, double valorDeCompra, String placa, int ano) {
+    public Van(ModeloVan modelo, Marca marca, Estado estado, Categoria categoria, Locacao locacao, double valorDeCompra, String placa, int ano) {
         super(marca, estado, categoria, locacao, valorDeCompra, placa, ano);
         this.modelo = modelo;
-        this.ValorDiariaLocacao = ValorDiariaLocacao;
+       
     }
 
    
-    void getModelo(){
+    public ModeloVan getModelo(){
+        return this.modelo;
+    }
+
+    @Override
+    public double getValorDiariaLocacao() {
+        double valorDiaria = 0;
+
+        switch (this.getCategoria().toString()) {
+        case "POPULAR":
+        valorDiaria = 200.00;
+        break;
+        case "INTERMEDIARIO":
+        valorDiaria = 400.00;
+        break;
+        default:
+        valorDiaria = 600.00;
+        break;
+        }
+
+        return valorDiaria;
     }
     
  

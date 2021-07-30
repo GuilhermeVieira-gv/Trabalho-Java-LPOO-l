@@ -16,6 +16,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private Cliente selecionado = null;
     private int linhaClicada=-1;
     private ModeloTabelaCliente modeloCliente = new  ModeloTabelaCliente();// Inserindo o modelo da tabela 
+    private ModeloTabelaVeiculo modeloVeiculo = new ModeloTabelaVeiculo();
     
     /**
      * Creates new form TelaManterCliente
@@ -634,19 +635,33 @@ public class TelasVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void adicionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionaVeiculoActionPerformed
-       System.out.println(cbxAutomovel.getSelectedItem());
-        Automovel a = new Automovel(cbxAutomovel.getSelectedItem(),valorDiariaLocacao.getText(),cbxMarca.getSelectedItem(),cbxEstado.getSelectedItem(), cbxCategoria.getSelectedItem(),locacao.getText(), valorDeCompra.getText(), placa.getText(),ano.getText());
-        // Motocicleta m = new Motocicleta  (cbxMotocicleta.getSelectedItem(),valorDiariaLocacao.getText(),marca.getSelectedItem(),estado.getSelectedItem(), categoria.getSelectedItem(),locacao.getText(), valorDeCompra.getText(), placa.getText(),ano.getText());
+      
+       String smarca = this.cbxMarca.getSelectedItem().toString();  //converte marca para string
+       String sestado = this.cbxEstado.getSelectedItem().toString();
+       String scategoria = this.cbxCategoria.getSelectedItem().toString();
+       double dvalor = Double.parseDouble(this.valorDeCompra.getText());
+       
+       int iano = Integer.parseInt(this.ano.getText());
+       Veiculo a = null;
+       
+       if (btAutomovel.isSelected()) {
+           String smodelo = this.cbxAutomovel.getSelectedItem().toString();
+            a = new Automovel(ModeloAutomovel.valueOf(smodelo),Marca.valueOf(smarca),Estado.valueOf(sestado),Categoria.valueOf(scategoria),null, dvalor, placa.getText().toString(),iano);
+       }
+       if (btMotocicleta.isSelected()) {
+           String smodelo = this.cbxMotocicleta.getSelectedItem().toString();
+            a = new Motocicleta(ModeloMotocicleta.valueOf(smodelo),Marca.valueOf(smarca),Estado.valueOf(sestado),Categoria.valueOf(scategoria),null, dvalor, placa.getText().toString(),iano);
+       } 
+       if (btVan.isSelected()){
+           String smodelo = this.cbxVan.getSelectedItem().toString();
+           a = new Van (ModeloVan.valueOf(smodelo),Marca.valueOf(smarca),Estado.valueOf(sestado),Categoria.valueOf(scategoria),null, dvalor, placa.getText().toString(),iano);
+       }
+       
+   
+       modeloVeiculo.adicionaVeiculo(a);
 
-        // Van v = new Van (modelo.getText(),marca.getText(),estado.getText(), categoria.getText(), valorDeCompra.getText(), placa.getText(),ano.getText());
-        /*
-        modeloCliente.adicionaCliente(c);
-        nome.setText("");
-        sobreNome.setText("");
-        cpf.setText("");
-        rg.setText("");
-        endereco.setText("");
-        */
+      
+
     }//GEN-LAST:event_adicionaVeiculoActionPerformed
 
     private void anoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anoActionPerformed

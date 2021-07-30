@@ -12,10 +12,10 @@ import java.util.Calendar;
  * @author Rafael
  */
 public class Locacao {
-    int dias;
-    double valor;
-    Calendar data;
-    Cliente cliente;
+    private int dias;
+    private double valor;
+    private Calendar data;
+    private Cliente cliente;
 
     public Locacao(int dias, double valor, Calendar data, Cliente cliente) {
         this.dias = dias;
@@ -25,15 +25,15 @@ public class Locacao {
     }
     
 
-    double getValor(){
+    public double getValor(){
         return valor;
     }
     
-    Calendar getData(){
+    public Calendar getData(){
         return data;
     }
  
-    Cliente getCliente(){
+    public Cliente getCliente(){
         return cliente;
     }
     

@@ -12,11 +12,11 @@ package TrabalhoFinal;
  */
 public class Cliente{
 
-    String nome;
-    String sobreNome;
-    String rg;
-    String cpf;
-    String endereco;
+    private String nome;
+    private String sobreNome;
+    private String rg;
+    private String cpf;
+    private String endereco;
 
     public Cliente() {
     }
@@ -30,12 +30,6 @@ public class Cliente{
         this.endereco = endereco;
     }
 
-    //verificar esse aqui - ni
-    Cliente(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
     public String getCpf() {
         return cpf;
     }

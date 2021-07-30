@@ -89,6 +89,9 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
         return lista.get(linha);
     }
 
+    public List<Veiculo> getLista(){
+        return this.lista;
+    }
 
 }
 
