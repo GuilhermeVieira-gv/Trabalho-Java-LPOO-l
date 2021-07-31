@@ -37,4 +37,7 @@ public class Locacao {
         return cliente;
     }
     
+    public int getDias() {
+        return this.dias;
+    }
 }

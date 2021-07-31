@@ -21,24 +21,22 @@ public class Automovel extends Veiculo{
     
     @Override
     public double getValorDiariaLocacao() {
-    double valorDiaria = 0;
+        double valorDiaria = 0;
 
-    switch (this.getCategoria().toString()) {
-    case "POPULAR":
-    valorDiaria = 100.00;
-    break;
-    case "INTERMEDIARIO":
-    valorDiaria = 300.00;
-    break;
-    default:
-    valorDiaria = 450.00;
-    break;
-    }
+        switch (this.getCategoria().toString()) {
+            case "POPULAR":
+                valorDiaria = 100.00;
+            break;
+            case "INTERMEDIARIO":
+                valorDiaria = 300.00;
+            break;
+            default:
+                valorDiaria = 450.00;
+            break;
+        }
 
-    return valorDiaria;
+        return valorDiaria;
     };
-    
-    
     
     public ModeloAutomovel getModelo(){
         return this.modelo;

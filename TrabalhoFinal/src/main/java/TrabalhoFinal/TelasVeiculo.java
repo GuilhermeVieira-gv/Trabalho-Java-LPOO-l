@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -25,6 +26,8 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private int linhaClicada=-1;
     private ModeloTabelaCliente modeloCliente = new  ModeloTabelaCliente();// Inserindo o modelo da tabela 
     private ModeloTabelaVeiculo modeloVeiculo = new ModeloTabelaVeiculo();
+    private ModeloTabelaVeiculoLocado modeloVeiculoLocado = new ModeloTabelaVeiculoLocado();
+    private ModeloTabelaVeiculoVender modeloVeiculoVender = new ModeloTabelaVeiculoVender();
     private List<Cliente> clientes = new ArrayList<Cliente>();
     private List<Veiculo> veiculos = new ArrayList<Veiculo>();
     
@@ -75,8 +78,19 @@ public class TelasVeiculo extends javax.swing.JFrame {
         endereco = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabelaVeiculoVender = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        categoriaSelectVender = new javax.swing.JComboBox<>();
+        tipoSelectVender = new javax.swing.JComboBox<>();
+        btBuscarVeiculoVender = new javax.swing.JButton();
+        btVender = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabelaVeiculoLocado = new javax.swing.JTable();
+        btDevolver = new javax.swing.JButton();
+        devolverResposta = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cbxMarca = new javax.swing.JComboBox<>();
         cbxEstado = new javax.swing.JComboBox<>();
@@ -250,7 +264,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
                                 .addComponent(atualizarCliente)
                                 .addGap(53, 53, 53)
                                 .addComponent(removeCliente)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(28, 28, 28))))
         );
@@ -294,21 +308,84 @@ public class TelasVeiculo extends javax.swing.JFrame {
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Vender Veiculo");
 
+        tabelaVeiculoVender.setModel(modeloVeiculoVender);
+        tabelaVeiculoVender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaVeiculoVenderMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tabelaVeiculoVender);
+
+        jLabel25.setText("Buscar Veiculo");
+
+        categoriaSelectVender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Popular", "Intermediario", "Luxo" }));
+
+        tipoSelectVender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovel", "Motocicleta", "Van" }));
+        tipoSelectVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoSelectVenderActionPerformed(evt);
+            }
+        });
+
+        btBuscarVeiculoVender.setText("Buscar");
+        btBuscarVeiculoVender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btBuscarVeiculoVenderMouseClicked(evt);
+            }
+        });
+
+        btVender.setText("Vender");
+        btVender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btVenderMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(categoriaSelectVender, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(tipoSelectVender, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btBuscarVeiculoVender))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)))
                 .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(240, 240, 240))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(categoriaSelectVender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoSelectVender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBuscarVeiculoVender))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(368, Short.MAX_VALUE))
         );
 
         ManterCliente.addTab("Vender Veiculo", jPanel5);
@@ -318,21 +395,65 @@ public class TelasVeiculo extends javax.swing.JFrame {
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("Devolver Veiculo");
 
+        tabelaVeiculoLocado.setModel(modeloVeiculoLocado);
+        tabelaVeiculoLocado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaVeiculoLocadoMouseClicked(evt);
+            }
+        });
+        tabelaVeiculoLocado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaVeiculoLocadoMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tabelaVeiculoLocado);
+
+        btDevolver.setText("Devolver");
+        btDevolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btDevolverMouseClicked(evt);
+            }
+        });
+        btDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDevolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                 .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4)
+                .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(btDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(devolverResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(btDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(devolverResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
 
         ManterCliente.addTab("Devolver Veiculo", jPanel6);
@@ -447,6 +568,16 @@ public class TelasVeiculo extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,27 +637,16 @@ public class TelasVeiculo extends javax.swing.JFrame {
                                         .addComponent(cbxEstado, 0, 174, Short.MAX_VALUE)
                                         .addComponent(cbxCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(430, 430, 430))))
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(retornoInclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(430, 430, 430))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(adicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(197, 197, 197))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(retornoInclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(adicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(197, 197, 197))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -575,7 +695,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
                 .addComponent(adicionaVeiculo)
                 .addGap(74, 74, 74)
                 .addComponent(retornoInclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         ManterCliente.addTab("Incluir Veiculo", jPanel3);
@@ -669,18 +789,15 @@ public class TelasVeiculo extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(numeroDiasLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addComponent(dataLocacao))
                 .addGap(319, 319, 319))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -738,7 +855,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
                     .addComponent(dataLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btLocar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         ManterCliente.addTab("Locar Veiculo", jPanel4);
@@ -1027,9 +1144,8 @@ public class TelasVeiculo extends javax.swing.JFrame {
 
     private void btLocarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLocarMouseClicked
         int diasLocacao = Integer.parseInt(this.numeroDiasLocacao.getText());
+        List<Veiculo> veiculosLocados = new ArrayList<Veiculo>();
         
-        System.out.println(tabelaClienteFiltradaLinha);
-        System.out.println(tabelaCliente.getValueAt(tabelaClienteFiltradaLinha, 2));
         Cliente cliente = null;
         
         for(Cliente clientes: this.clientes) {
@@ -1039,6 +1155,10 @@ public class TelasVeiculo extends javax.swing.JFrame {
         }
         
         for(Veiculo veiculo: this.veiculos) {
+            if (veiculo.getEstado().toString().toLowerCase().equals("locado")) {
+                veiculosLocados.add(veiculo);
+            }
+            
             if (veiculo.getPlaca().equals(tabelaVeiculo.getValueAt(tabelaVeiculoFiltradaLinha, 1))) {
                 DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 try {
@@ -1047,14 +1167,12 @@ public class TelasVeiculo extends javax.swing.JFrame {
                     calendar.setTime(date);
                     veiculo.locar(diasLocacao, calendar, cliente);
                     this.textoLocarVeiculo.setText("Veiculo locado!");
+                    veiculosLocados.add(veiculo);
+                    this.modeloVeiculoLocado.atualizarTabela(veiculosLocados);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
-        }
-        
-        for(Veiculo veiculo: this.veiculos) {
-            System.out.println(veiculo.getEstado().toString());
         }
     }//GEN-LAST:event_btLocarMouseClicked
 
@@ -1062,6 +1180,104 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private void tabelaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClienteMouseClicked
        tabelaClienteFiltradaLinha = tabelaCliente.rowAtPoint(evt.getPoint());
     }//GEN-LAST:event_tabelaClienteMouseClicked
+
+    private void btDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDevolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btDevolverActionPerformed
+
+    int tabelaVeiculosLocadosLinha;
+    private void tabelaVeiculoLocadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaVeiculoLocadoMouseClicked
+        tabelaVeiculosLocadosLinha = tabelaVeiculoLocado.rowAtPoint(evt.getPoint());
+    }//GEN-LAST:event_tabelaVeiculoLocadoMouseClicked
+
+    private void btDevolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDevolverMouseClicked
+        for(Veiculo veiculo: this.veiculos) {
+            if(veiculo.getPlaca().equals(tabelaVeiculoLocado.getValueAt(tabelaVeiculosLocadosLinha, 1))) {
+                veiculo.devolver();
+                modeloVeiculoLocado.removeVeiculoLocado(veiculo);
+                this.devolverResposta.setText("Veiculo devolvido!");
+            }
+        }
+    }//GEN-LAST:event_btDevolverMouseClicked
+
+    private void tipoSelectVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSelectVenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoSelectVenderActionPerformed
+
+    private void btBuscarVeiculoVenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btBuscarVeiculoVenderMouseClicked
+       List<Veiculo> veiculosProcurados = new ArrayList<Veiculo>();
+        for(Veiculo veiculo: this.veiculos) {
+           if(veiculo.getEstado().toString().toLowerCase().equals("disponivel")) {
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("automovel")) {
+                    if(veiculo instanceof Automovel) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosProcurados.add(veiculo);
+                         }
+                    }
+                } 
+                
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("motocicleta")) {
+                    if(veiculo instanceof Motocicleta) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosProcurados.add(veiculo);
+                         }
+                    }
+                }
+                
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("van")) {
+                    if(veiculo instanceof Van) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosProcurados.add(veiculo);
+                         }
+                    }
+                }
+           }
+        }
+        this.modeloVeiculoVender.atualizarTabela(veiculosProcurados);
+    }//GEN-LAST:event_btBuscarVeiculoVenderMouseClicked
+
+    private int tabelaVeiculosVenderLinha;
+    private void tabelaVeiculoVenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaVeiculoVenderMouseClicked
+       tabelaVeiculosVenderLinha = tabelaVeiculoVender.rowAtPoint(evt.getPoint());
+    }//GEN-LAST:event_tabelaVeiculoVenderMouseClicked
+
+    private void btVenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVenderMouseClicked
+        for(Veiculo veiculo: this.veiculos) {
+            if (veiculo.getPlaca().equals(modeloVeiculo.getValueAt(tabelaVeiculosVenderLinha, 1))) {
+                veiculo.vender();
+            }
+        }
+        
+        List<Veiculo> veiculosVendidos = new ArrayList<Veiculo>();
+        for(Veiculo veiculo: this.veiculos) {
+           if(veiculo.getEstado().toString().toLowerCase().equals("disponivel")) {
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("automovel")) {
+                    if(veiculo instanceof Automovel) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosVendidos.add(veiculo);
+                         }
+                    }
+                } 
+                
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("motocicleta")) {
+                    if(veiculo instanceof Motocicleta) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosVendidos.add(veiculo);
+                         }
+                    }
+                }
+                
+                if(this.tipoSelectVender.getSelectedItem().toString().toLowerCase().equals("van")) {
+                    if(veiculo instanceof Van) {
+                         if (veiculo.getCategoria().equals(Categoria.valueOf(this.categoriaSelectVender.getSelectedItem().toString().toUpperCase()))) {
+                             veiculosVendidos.add(veiculo);
+                         }
+                    }
+                }
+           }
+        }
+        this.modeloVeiculoVender.atualizarTabela(veiculosVendidos);
+    }//GEN-LAST:event_btVenderMouseClicked
 
     
     
@@ -1111,12 +1327,16 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JRadioButton btAutomovel;
     private javax.swing.JButton btBuscarCliente;
     private javax.swing.JButton btBuscarVeiculo;
+    private javax.swing.JButton btBuscarVeiculoVender;
+    private javax.swing.JButton btDevolver;
     private javax.swing.JButton btLocar;
     private javax.swing.JRadioButton btMotocicleta;
     private javax.swing.JRadioButton btVan;
+    private javax.swing.JButton btVender;
     private javax.swing.JTextField buscarCliente;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> categoriaSelect;
+    private javax.swing.JComboBox<String> categoriaSelectVender;
     private javax.swing.JComboBox<ModeloAutomovel> cbxAutomovel;
     private javax.swing.JComboBox<Categoria> cbxCategoria;
     private javax.swing.JComboBox<Estado> cbxEstado;
@@ -1126,6 +1346,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private java.awt.Checkbox checkbox1;
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField dataLocacao;
+    private javax.swing.JLabel devolverResposta;
     private javax.swing.JTextField endereco;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -1145,6 +1366,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1160,6 +1382,8 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField numeroDiasLocacao;
     private javax.swing.JTextField placa;
@@ -1170,8 +1394,11 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JTable tabela;
     private javax.swing.JTable tabelaCliente;
     private javax.swing.JTable tabelaVeiculo;
+    private javax.swing.JTable tabelaVeiculoLocado;
+    private javax.swing.JTable tabelaVeiculoVender;
     private javax.swing.JLabel textoLocarVeiculo;
     private javax.swing.JComboBox<String> tipoSelect;
+    private javax.swing.JComboBox<String> tipoSelectVender;
     private javax.swing.JTextField valorDeCompra;
     // End of variables declaration//GEN-END:variables
 

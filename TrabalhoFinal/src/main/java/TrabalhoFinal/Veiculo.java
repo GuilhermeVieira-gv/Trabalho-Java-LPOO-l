@@ -59,31 +59,31 @@ public abstract class Veiculo implements VeiculoI {
     @Override
     public void locar(int dias, Calendar data, Cliente cliente) {
         this.estado = Estado.LOCADO;
-        Locacao novaLocacao = new Locacao(dias, this.getValorDiariaLocacao(), data, cliente);
+        Locacao novaLocacao = new Locacao(dias, this.getValorDiariaLocacao() * dias, data, cliente);
         this.locacao = novaLocacao;
     }
 
     @Override
     public void vender(){
-        //Muda estado para VENDIDO e n?o pode mais ser alugado
+        this.estado = Estado.VENDIDO;
     }
 
     @Override
     public void devolver(){
-        //Muda estado para DISPONIVEL
+        this.estado = Estado.DISPONIVEL;
     }
 
     @Override
     public double getValorParaVenda() {
-    double valorVenda = this.valorDeCompra - (((2021 - ano) * 0.15) * valorDeCompra);
-    double percentageCompra10PerCent = (this.valorDeCompra - (this.valorDeCompra * 0.9));
+        double valorVenda = this.valorDeCompra - (((2021 - ano) * 0.15) * valorDeCompra);
+        double percentageCompra10PerCent = (this.valorDeCompra - (this.valorDeCompra * 0.9));
 
-    if (valorVenda < percentageCompra10PerCent || valorVenda < 0) {
-    valorVenda = this.valorDeCompra * 0.1;
+        if (valorVenda < percentageCompra10PerCent || valorVenda < 0) {
+            valorVenda = this.valorDeCompra * 0.1;
+        }
+
+        return valorVenda;
     }
-
-    return valorVenda;
-}
     
     @Override
     public abstract double getValorDiariaLocacao();

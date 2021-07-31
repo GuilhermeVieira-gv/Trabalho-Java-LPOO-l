@@ -3,7 +3,7 @@ apply plugin: 'jacoco'
 apply plugin: 'application'
 
 
-mainClassName = 'TrabalhoFinal.Main'
+mainClassName = 'TrabalhoFinal.TelasVeiculo'
 
 repositories {
     mavenCentral()

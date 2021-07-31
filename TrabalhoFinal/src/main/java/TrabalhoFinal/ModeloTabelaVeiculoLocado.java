@@ -1,27 +1,27 @@
-package TrabalhoFinal;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package TrabalhoFinal;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+
 /**
  *
- * @author nicol
+ * @author mathe
  */
-public class ModeloTabelaVeiculo extends AbstractTableModel {
-
-    private String[] colunas = new String[]{"Marca", "Placa", "Ano", "Preço Diaria", "Modelo"};
+public class ModeloTabelaVeiculoLocado extends AbstractTableModel{
+    private String[] colunas = new String[]{"Nome do cliente", "Placa", "Marca", "Modelo", "Ano", "Data de locação", "Preço da diaria", "Qtdade dias locados", "Valor locação"};
     private List<Veiculo> lista = new ArrayList();
-
-
-
+    
     @Override
     public int getRowCount() {
         return lista.size();
@@ -66,56 +66,37 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
             modelo = v.getModelo().toString();
         }
         
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = df.format(veiculo.getLocacao().getData().getTime());
+        
         NumberFormat valorFormatado = new DecimalFormat("#0.00");
-        String valorCompra = "R$ " + valorFormatado.format(veiculo.getValorDeCompra());
+        String valorLocacaoDiario = "R$ " + valorFormatado.format(veiculo.getValorDiariaLocacao());
+        String valorLocacao = "R$ " + valorFormatado.format(veiculo.getLocacao().getValor());
         
         switch (columnIndex) {
-            case 0: return veiculo.getMarca();//if column 1 (name)
+            case 0: return veiculo.getLocacao().getCliente().getNome();//if column 1 (name)
             case 1: return veiculo.getPlaca();//if column 2
-            case 2: return veiculo.getAno();
-            case 3: return valorCompra;
-            case 4: return modelo ;
+            case 2: return veiculo.getMarca();
+            case 3: return modelo;
+            case 4: return veiculo.getAno() ;
+            case 5: return dataFormatada;
+            case 6: return valorLocacaoDiario;
+            case 7: return veiculo.getLocacao().getDias();
+            case 8: return valorLocacao;
             default : return null;
         }
     }
-
-    public void adicionaVeiculo(List<Veiculo> listaVeiculos) {
-        this.lista = listaVeiculos;
-        this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
-        
-        
-    }
-
-    public int removeVeiculo(Veiculo veiculo) {
-        int linha = this.lista.indexOf(veiculo);
-        boolean result = this.lista.remove(veiculo);
-        this.fireTableRowsDeleted(linha,linha);//update JTable
-        return linha;
-    }
-
+    
     public void atualizarTabela(List<Veiculo> lista){
         this.lista = new ArrayList();
         this.lista.addAll(lista);
         this.fireTableDataChanged();
     }
-
-    public void limpaTabela() {
-        int indice = lista.size()-1;
-        if(indice<0)
-            indice=0;
-        this.lista = new ArrayList();
-        this.fireTableRowsDeleted(0,indice);//update JTable
+    
+    public int removeVeiculoLocado(Veiculo veiculo) {
+        int linha = this.lista.indexOf(veiculo);
+        this.lista.remove(veiculo);
+        this.fireTableRowsDeleted(linha,linha);//update JTable
+        return linha;
     }
-
-    public Veiculo getVeiculo(int linha){
-        return lista.get(linha);
-    }
-
-    public List<Veiculo> getLista(){
-        return this.lista;
-    }
-
 }
-
-
-//verificar sobre manter cliente - editar

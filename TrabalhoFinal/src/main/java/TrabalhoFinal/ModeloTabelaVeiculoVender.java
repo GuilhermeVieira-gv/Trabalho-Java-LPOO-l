@@ -1,23 +1,22 @@
-package TrabalhoFinal;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package TrabalhoFinal;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+
 /**
  *
- * @author nicol
+ * @author mathe
  */
-public class ModeloTabelaVeiculo extends AbstractTableModel {
-
-    private String[] colunas = new String[]{"Marca", "Placa", "Ano", "Preço Diaria", "Modelo"};
+public class ModeloTabelaVeiculoVender extends AbstractTableModel {
+    private String[] colunas = new String[]{"Marca", "Placa", "Ano", "Preço para venda", "Modelo"};
     private List<Veiculo> lista = new ArrayList();
 
 
@@ -66,14 +65,15 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
             modelo = v.getModelo().toString();
         }
         
+        
         NumberFormat valorFormatado = new DecimalFormat("#0.00");
-        String valorCompra = "R$ " + valorFormatado.format(veiculo.getValorDeCompra());
+        String valorVenda = "R$ " + valorFormatado.format(veiculo.getValorParaVenda());
         
         switch (columnIndex) {
             case 0: return veiculo.getMarca();//if column 1 (name)
             case 1: return veiculo.getPlaca();//if column 2
             case 2: return veiculo.getAno();
-            case 3: return valorCompra;
+            case 3: return valorVenda;
             case 4: return modelo ;
             default : return null;
         }
@@ -114,8 +114,4 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
     public List<Veiculo> getLista(){
         return this.lista;
     }
-
 }
-
-
-//verificar sobre manter cliente - editar
