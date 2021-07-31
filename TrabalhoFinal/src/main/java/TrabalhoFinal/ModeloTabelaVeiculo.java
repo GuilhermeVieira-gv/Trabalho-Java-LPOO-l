@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTabelaVeiculo extends AbstractTableModel {
 
-    private String[] colunas= new String[]{"Marca", "Estado", "Categoria", "Locacao", "Valor de Compra", "Placa", "Ano"};
+    private String[] colunas = new String[]{"Marca", "Estado", "Categoria", "Locacao", "Valor de Compra", "Placa", "Ano"};
     private List<Veiculo> lista = new ArrayList();
 
 
@@ -58,17 +58,17 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
         }
     }
 
-    public void adicionaVeiculo(Veiculo veiculo) {
-        this.lista.add(veiculo);
+    public void adicionaVeiculo(List<Veiculo> listaVeiculos) {
+        this.lista = listaVeiculos;
         this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
         System.out.println(this.lista.size());
     }
 
-    public boolean removeVeiculo(Veiculo veiculo) {
+    public int removeVeiculo(Veiculo veiculo) {
         int linha = this.lista.indexOf(veiculo);
         boolean result = this.lista.remove(veiculo);
         this.fireTableRowsDeleted(linha,linha);//update JTable
-        return result;
+        return linha;
     }
 
     public void atualizarTabela(List<Veiculo> lista){
