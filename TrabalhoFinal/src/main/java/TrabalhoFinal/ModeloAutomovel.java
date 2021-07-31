@@ -13,12 +13,3 @@ public enum ModeloAutomovel {
     GOL, CELTA , PALIO;
    
 }
-    
-/*
-    public String getValor() {
-        int i = this.valor;
-        String str = i.toString();
-        return str;
-    }
-    
-}*/

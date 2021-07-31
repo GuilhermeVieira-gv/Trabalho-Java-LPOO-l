@@ -10,17 +10,6 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum ModeloMotocicleta {
-    CG125(1), CBR500(2);
-    
-    private int valor;
-    
-    private ModeloMotocicleta(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-    
+    CG125, CBR500;
 }
 

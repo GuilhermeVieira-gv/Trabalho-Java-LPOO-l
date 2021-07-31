@@ -49,8 +49,8 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         switch (columnIndex) {
             case 0: return cliente.getNome();//if column 1 (name)
             case 1: return cliente.getSobreNome();//if column 2 
-            case 2: return cliente.getRg();
-            case 3: return cliente.getCpf() ;
+            case 2: return cliente.getCpf();
+            case 3: return cliente.getRg() ;
             case 4: return cliente.getEndereco() ;
             default : return null;
         }

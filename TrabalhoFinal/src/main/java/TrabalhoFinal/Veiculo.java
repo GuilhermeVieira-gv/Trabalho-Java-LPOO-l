@@ -48,7 +48,7 @@ public abstract class Veiculo implements VeiculoI {
 
     @Override
     public String getPlaca(){
-        return null;
+        return this.placa;
     }
 
     @Override
@@ -57,10 +57,10 @@ public abstract class Veiculo implements VeiculoI {
     }
 
     @Override
-    public void locar (int dias, Calendar data, Cliente cliente){
-        //instanciar locacao aqui
-        //Muda estado para LOCADO. Cria uma inst?ncia de Locacao e armazena no atributo
-        //locacao. Chama o m?todo getValorDiariaLocacao para calcular o valor da loca??o.
+    public void locar(int dias, Calendar data, Cliente cliente) {
+        this.estado = Estado.LOCADO;
+        Locacao novaLocacao = new Locacao(dias, this.getValorDiariaLocacao(), data, cliente);
+        this.locacao = novaLocacao;
     }
 
     @Override

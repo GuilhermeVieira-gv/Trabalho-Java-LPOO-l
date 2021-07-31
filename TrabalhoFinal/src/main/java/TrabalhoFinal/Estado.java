@@ -10,16 +10,5 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum Estado {
-    NOVO(1), LOCADO(2), DISPONIVEL(3), VENDIDO(4);
-    
-    private int valor;
-    
-    private Estado(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-    
+    NOVO, LOCADO, DISPONIVEL, VENDIDO;
 }

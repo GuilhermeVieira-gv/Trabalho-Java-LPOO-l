@@ -10,15 +10,5 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum Marca {
-    VW(1), GM(2), MERCEDES(3), FIAT(4), HONDA(5);
-    
-    private int valor;
-    
-    private Marca(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
+    VW, GM, MERCEDES, FIAT, HONDA;
 }

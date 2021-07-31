@@ -10,16 +10,5 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum ModeloVan {
-    KOMBI(1), SPRINTER(2), TRAFFIC(3);
-    
-    private int valor;
-    
-    private ModeloVan(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-    
+    KOMBI, SPRINTER, TRAFFIC;   
 }

@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTabelaVeiculo extends AbstractTableModel {
 
-    private String[] colunas = new String[]{"Marca", "Estado", "Categoria", "Locacao", "Valor de Compra", "Placa", "Ano"};
+    private String[] colunas = new String[]{"Marca", "Placa", "Ano", "Preço Diaria", "Modelo"};
     private List<Veiculo> lista = new ArrayList();
 
 
@@ -46,14 +46,31 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Veiculo veiculo = lista.get(rowIndex);
+        
+        Automovel a = null;
+        Motocicleta m = null;
+        Van v = null;
+        
+        String modelo = null;
+        
+        if(veiculo instanceof Automovel) {
+            a = (Automovel)veiculo;
+            modelo = a.getModelo().toString();
+        } else if(veiculo instanceof Motocicleta) {
+            m = (Motocicleta)veiculo;
+            modelo = m.getModelo().toString();
+        } else {
+            v = (Van)veiculo;
+            modelo = v.getModelo().toString();
+        }
+        
+        
         switch (columnIndex) {
             case 0: return veiculo.getMarca();//if column 1 (name)
-            case 1: return veiculo.getEstado();//if column 2
-            case 2: return veiculo.getCategoria();
-            case 3: return veiculo.getLocacao() ;
-            case 4: return veiculo.getValorDeCompra();
-            case 5: return veiculo.getPlaca() ;
-            case 6: return veiculo.getAno() ;
+            case 1: return veiculo.getPlaca();//if column 2
+            case 2: return veiculo.getAno();
+            case 3: return veiculo.getValorDiariaLocacao();
+            case 4: return modelo ;
             default : return null;
         }
     }
@@ -61,7 +78,8 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
     public void adicionaVeiculo(List<Veiculo> listaVeiculos) {
         this.lista = listaVeiculos;
         this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
-        System.out.println(this.lista.size());
+        
+        
     }
 
     public int removeVeiculo(Veiculo veiculo) {

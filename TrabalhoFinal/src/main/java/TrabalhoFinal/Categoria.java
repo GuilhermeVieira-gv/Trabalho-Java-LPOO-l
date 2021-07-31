@@ -10,16 +10,5 @@ package TrabalhoFinal;
  * @author Rafael
  */
 public enum Categoria {
-    POPULAR(1), INTERMEDIARIO(2), LUXO(3);
-    
-    private int valor;
-    
-    private Categoria(int valor){
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-    
+    POPULAR, INTERMEDIARIO, LUXO;
 }
