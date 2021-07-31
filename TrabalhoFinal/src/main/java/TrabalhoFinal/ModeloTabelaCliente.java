@@ -56,17 +56,17 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         }
     }
 
-    public void adicionaCliente(Cliente cliente) {
-        this.lista.add(cliente);
+    public void adicionaCliente(List<Cliente> listaClientes) {
+        this.lista = listaClientes;
         this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
         System.out.println(this.lista.size());
     }
     
-    public boolean removeCliente(Cliente cliente) {
+    public int removeCliente(Cliente cliente) {
         int linha = this.lista.indexOf(cliente);
         boolean result = this.lista.remove(cliente);
         this.fireTableRowsDeleted(linha,linha);//update JTable
-        return result;
+        return linha;
     }
 /* inserido extra pela ni - tentando fazer edição do cliente
     public boolean atualizarCliente(Cliente cliente){
@@ -78,6 +78,7 @@ public class ModeloTabelaCliente extends AbstractTableModel {
    
    
     public void atualizarTabela(List<Cliente> lista){
+        System.out.println(lista);
         this.lista = new ArrayList();
         this.lista.addAll(lista);
         this.fireTableDataChanged();
@@ -94,12 +95,6 @@ public class ModeloTabelaCliente extends AbstractTableModel {
     public Cliente getCliente(int linha){
         return lista.get(linha);
     }
-
-    Cliente getCliente(Cliente selecionado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
 }
  
 

@@ -5,6 +5,7 @@
  */
 package TrabalhoFinal;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
@@ -17,6 +18,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private int linhaClicada=-1;
     private ModeloTabelaCliente modeloCliente = new  ModeloTabelaCliente();// Inserindo o modelo da tabela 
     private ModeloTabelaVeiculo modeloVeiculo = new ModeloTabelaVeiculo();
+    private List<Cliente> clientes = new ArrayList<Cliente>();
     
     /**
      * Creates new form TelaManterCliente
@@ -69,13 +71,15 @@ public class TelasVeiculo extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        buscarCliente = new javax.swing.JTextField();
+        buscarVeiculo = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        btBuscarVeiculo = new javax.swing.JButton();
+        btBuscarCliente = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -274,17 +278,7 @@ public class TelasVeiculo extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Cliente:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(modeloCliente);
         jScrollPane1.setViewportView(jTable1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -301,6 +295,12 @@ public class TelasVeiculo extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
 
         jLabel22.setText("Buscar Veiculo");
+
+        buscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel23.setText("Numero de dias de locação:");
 
@@ -325,14 +325,28 @@ public class TelasVeiculo extends javax.swing.JFrame {
             }
         });
 
+        btBuscarVeiculo.setText("Buscar");
+
+        btBuscarCliente.setText("Buscar");
+        btBuscarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btBuscarClienteMouseClicked(evt);
+            }
+        });
+        btBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                .addGap(58, 58, 58))
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addGap(111, 111, 111))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,8 +356,14 @@ public class TelasVeiculo extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(buscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btBuscarCliente))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(buscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btBuscarVeiculo)))
                 .addGap(76, 76, 76))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
@@ -355,28 +375,29 @@ public class TelasVeiculo extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(428, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(buscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBuscarCliente))
+                .addGap(13, 13, 13)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(buscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBuscarVeiculo))
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -738,13 +759,22 @@ public class TelasVeiculo extends javax.swing.JFrame {
             c.setEndereco(endereco.getText());
 
             modeloCliente.fireTableRowsUpdated(linhaClicada, linhaClicada);
+            
+            // For para interar sobre a lista do clientes banco de dados
+            for (Cliente cliente: this.clientes) {
+                if (cliente.getCpf().equals(c.getCpf())) {
+                    int indice = this.clientes.indexOf(cliente);
+                    this.clientes.set(indice, c);
+                }
+            }
     
        }
     }//GEN-LAST:event_atualizarClienteActionPerformed
 
     private void adicionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionaClienteActionPerformed
         Cliente c = new Cliente (nome.getText(),sobreNome.getText(), cpf.getText(), rg.getText(),endereco.getText());
-        modeloCliente.adicionaCliente(c);
+        this.clientes.add(c);
+        modeloCliente.adicionaCliente(this.clientes);
         nome.setText("");
         sobreNome.setText("");
         cpf.setText("");
@@ -766,13 +796,14 @@ public class TelasVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_enderecoActionPerformed
 
     private void removeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeClienteActionPerformed
-       modeloCliente.removeCliente(selecionado);
+       int indice = modeloCliente.removeCliente(selecionado);
        
         nome.setText("");
         sobreNome.setText("");
         cpf.setText("");
         rg.setText("");
         endereco.setText("");
+        this.clientes.remove(indice);
     }//GEN-LAST:event_removeClienteActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
@@ -884,6 +915,34 @@ public class TelasVeiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void btBuscarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btBuscarClienteMouseClicked
+        
+        List<Cliente> clientesProcurados = new ArrayList<Cliente>();
+        for(Cliente cliente: this.clientes) {
+            if(cliente.getNome().equals(buscarCliente.getText())) {
+               clientesProcurados.add(cliente);
+            }
+            if (cliente.getSobreNome().equals(buscarCliente.getText())) {
+                clientesProcurados.add(cliente);
+            }
+            if (cliente.getCpf().equals(buscarCliente.getText())) {
+                clientesProcurados.add(cliente);
+            }
+        }
+        
+        this.modeloCliente.atualizarTabela(clientesProcurados);
+            
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btBuscarClienteMouseClicked
+
+    private void buscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarClienteActionPerformed
+
+    private void btBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btBuscarClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -928,8 +987,12 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JTextField ano;
     private javax.swing.JButton atualizarCliente;
     private javax.swing.JRadioButton btAutomovel;
+    private javax.swing.JButton btBuscarCliente;
+    private javax.swing.JButton btBuscarVeiculo;
     private javax.swing.JRadioButton btMotocicleta;
     private javax.swing.JRadioButton btVan;
+    private javax.swing.JTextField buscarCliente;
+    private javax.swing.JTextField buscarVeiculo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<ModeloAutomovel> cbxAutomovel;
     private javax.swing.JComboBox<Categoria> cbxCategoria;
@@ -975,8 +1038,6 @@ public class TelasVeiculo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField locacao;

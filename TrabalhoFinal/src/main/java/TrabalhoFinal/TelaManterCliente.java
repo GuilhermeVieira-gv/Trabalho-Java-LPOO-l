@@ -241,7 +241,7 @@ public class TelaManterCliente extends javax.swing.JFrame {
 
     private void adicionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionaClienteActionPerformed
         Cliente c = new Cliente (nome.getText(),sobreNome.getText(), cpf.getText(), rg.getText(),endereco.getText());
-        modeloCliente.adicionaCliente(c);
+        //modeloCliente.adicionaCliente(c);
         nome.setText("");
         sobreNome.setText("");
         cpf.setText("");
