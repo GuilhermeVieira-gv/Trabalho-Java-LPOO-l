@@ -12,15 +12,11 @@ package TrabalhoFinal;
 public class Motocicleta extends Veiculo{
    private ModeloMotocicleta modelo;
    
-
     public Motocicleta(ModeloMotocicleta modelo, Marca marca, Estado estado, Categoria categoria, Locacao locacao, double valorDeCompra, String placa, int ano) {
         super(marca, estado, categoria, locacao, valorDeCompra, placa, ano);
         this.modelo = modelo;
 
     }
-
-
-    
  
     public ModeloMotocicleta getModelo(){
         return this.modelo;
@@ -28,21 +24,21 @@ public class Motocicleta extends Veiculo{
 
     @Override
     public double getValorDiariaLocacao() {
-    double valorDiaria = 0;
+        double valorDiaria = 0;
 
-    switch (this.getCategoria().toString()) {
-    case "POPULAR":
-    valorDiaria = 70.00;
-    break;
-    case "INTERMEDIARIO":
-    valorDiaria = 200.00;
-    break;
-    default:
-    valorDiaria = 350.00;
-    break;
-    }
+        switch (this.getCategoria().toString()) {
+            case "POPULAR":
+                valorDiaria = 70.00;
+            break;
+            case "INTERMEDIARIO":
+                valorDiaria = 200.00;
+            break;
+            default:
+                valorDiaria = 350.00;
+            break;
+        }
 
-    return valorDiaria;
+        return valorDiaria;
     }
      
 }

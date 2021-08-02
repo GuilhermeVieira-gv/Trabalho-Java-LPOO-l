@@ -5,13 +5,14 @@ import java.util.Calendar;
  * @author Rafael
  */
 public abstract class Veiculo implements VeiculoI {
-    Marca marca;
-    Estado estado;
-    Categoria categoria;
-    Locacao locacao;
-    double valorDeCompra; // pq estamos usando valorDeCompra e não valorParaVenda como o método lá em baixo?
-    String placa;
-    int ano;
+    private Marca marca;
+    private Estado estado;
+    private Categoria categoria;
+    private Locacao locacao;
+    private double valorDeCompra; // pq estamos usando valorDeCompra e não valorParaVenda como o método lá em baixo?
+    private String placa;
+    private int ano;
+    
     public Veiculo(Marca marca, Estado estado, Categoria categoria, Locacao locacao, double valorDeCompra, String placa, int ano) {
         this.marca = marca;
         this.estado = estado;
@@ -86,6 +87,5 @@ public abstract class Veiculo implements VeiculoI {
     }
     
     @Override
-    public abstract double getValorDiariaLocacao();
-  
+    public abstract double getValorDiariaLocacao(); 
 }

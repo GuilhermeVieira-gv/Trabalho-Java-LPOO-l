@@ -18,7 +18,6 @@ public class Automovel extends Veiculo{
   
     }
     
-    
     @Override
     public double getValorDiariaLocacao() {
         double valorDiaria = 0;

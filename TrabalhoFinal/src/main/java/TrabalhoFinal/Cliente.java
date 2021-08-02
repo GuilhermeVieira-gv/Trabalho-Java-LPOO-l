@@ -19,8 +19,8 @@ public class Cliente{
     private String endereco;
 
     public Cliente() {
+        
     }
-
     
     public Cliente(String nome, String sobreNome, String rg, String cpf, String endereco) {
         this.nome = nome;
@@ -69,19 +69,5 @@ public class Cliente{
     public void setSobreNome(String sobreNome) {
         this.sobreNome = sobreNome;
     }
-    
-    
-
-   /* void incluir(){       
-    }
-
-    void atualizar(){
-    }
-
-    void excluir(){
-    }
-
-    void listar(){
-    }*/
 }
         
