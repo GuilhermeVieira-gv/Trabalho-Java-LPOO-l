@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author mathe
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class ModeloTabelaVeiculoLocado extends AbstractTableModel{
     private String[] colunas = new String[]{"Nome do cliente", "Placa", "Marca", "Modelo", "Ano", "Data de locação", "Preço da diaria", "Qtdade dias locados", "Valor locação"};
@@ -40,9 +40,6 @@ public class ModeloTabelaVeiculoLocado extends AbstractTableModel{
     @Override
     public boolean isCellEditable(int row, int column) {
         return false;
-        //if(column==0)
-        //    return false;
-        //return true;
     }
 
     @Override

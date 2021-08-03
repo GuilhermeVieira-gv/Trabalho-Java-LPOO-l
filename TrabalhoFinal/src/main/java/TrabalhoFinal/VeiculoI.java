@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author mathe
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public interface VeiculoI {
     

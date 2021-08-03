@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author Rafael
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class Locacao {
     private int dias;

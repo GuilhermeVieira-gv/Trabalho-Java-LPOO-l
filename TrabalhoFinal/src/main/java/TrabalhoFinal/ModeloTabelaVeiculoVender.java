@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author mathe
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class ModeloTabelaVeiculoVender extends AbstractTableModel {
     private String[] colunas = new String[]{"Marca", "Placa", "Ano", "Preço para venda", "Modelo"};
@@ -39,9 +39,6 @@ public class ModeloTabelaVeiculoVender extends AbstractTableModel {
     @Override
     public boolean isCellEditable(int row, int column) {
         return false;
-        //if(column==0)
-        //    return false;
-        //return true;
     }
 
     @Override

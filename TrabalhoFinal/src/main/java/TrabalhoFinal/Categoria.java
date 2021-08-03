@@ -7,7 +7,7 @@ package TrabalhoFinal;
 
 /**
  *
- * @author Rafael
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public enum Categoria {
     POPULAR, INTERMEDIARIO, LUXO;

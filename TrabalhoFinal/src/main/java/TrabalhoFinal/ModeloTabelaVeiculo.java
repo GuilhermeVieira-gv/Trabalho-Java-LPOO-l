@@ -13,7 +13,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
  *
- * @author nicol
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class ModeloTabelaVeiculo extends AbstractTableModel {
 
@@ -40,9 +40,6 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
     @Override
     public boolean isCellEditable(int row, int column) {
         return false;
-        //if(column==0)
-        //    return false;
-        //return true;
     }
 
     @Override
@@ -116,6 +113,3 @@ public class ModeloTabelaVeiculo extends AbstractTableModel {
     }
 
 }
-
-
-//verificar sobre manter cliente - editar

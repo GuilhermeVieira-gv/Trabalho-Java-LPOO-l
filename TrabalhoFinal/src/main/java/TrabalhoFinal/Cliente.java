@@ -8,7 +8,7 @@ package TrabalhoFinal;
 
 /**
  *
- * @author Rafael
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class Cliente{
 

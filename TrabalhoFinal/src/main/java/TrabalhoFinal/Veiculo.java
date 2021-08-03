@@ -2,14 +2,14 @@ package TrabalhoFinal;
 import java.util.Calendar;
 /**
  *
- * @author Rafael
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public abstract class Veiculo implements VeiculoI {
     private Marca marca;
     private Estado estado;
     private Categoria categoria;
     private Locacao locacao;
-    private double valorDeCompra; // pq estamos usando valorDeCompra e não valorParaVenda como o método lá em baixo?
+    private double valorDeCompra; 
     private String placa;
     private int ano;
     
@@ -43,7 +43,7 @@ public abstract class Veiculo implements VeiculoI {
         return locacao;
     }
 
-    public double getValorDeCompra() {  // CRIAMOS ESTE METODO PRA USAR NO MODELOTABELA VEICULO E TB NO METODO GET VALOR PARA VENDA
+    public double getValorDeCompra() {  
         return valorDeCompra;
     }
 

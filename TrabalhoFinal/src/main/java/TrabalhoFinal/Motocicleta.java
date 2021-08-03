@@ -7,7 +7,7 @@ package TrabalhoFinal;
 
 /**
  *
- * @author Rafael
+ * @author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class Motocicleta extends Veiculo{
    private ModeloMotocicleta modelo;

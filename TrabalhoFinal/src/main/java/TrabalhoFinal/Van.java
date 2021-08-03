@@ -7,7 +7,7 @@ package TrabalhoFinal;
 
 /**
  *
- * @author Rafael
+ *@author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class Van extends Veiculo {
     private  ModeloVan modelo;
@@ -40,7 +40,4 @@ public class Van extends Veiculo {
 
         return valorDiaria;
     }
-    
- 
-  
 }

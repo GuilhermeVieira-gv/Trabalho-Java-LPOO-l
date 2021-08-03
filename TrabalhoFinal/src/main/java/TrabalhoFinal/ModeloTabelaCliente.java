@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
  *
- * @author nicol
+ *@author Guilherme, Katiana, Matheus, Nicolle, Rafael
  */
 public class ModeloTabelaCliente extends AbstractTableModel {
 
@@ -38,9 +38,6 @@ public class ModeloTabelaCliente extends AbstractTableModel {
     @Override
     public boolean isCellEditable(int row, int column) {
         return false;
-        //if(column==0)
-        //    return false;
-        //return true;
     }
 
     @Override
@@ -68,14 +65,6 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         this.fireTableRowsDeleted(linha,linha);//update JTable
         return linha;
     }
-/* inserido extra pela ni - tentando fazer edição do cliente
-    public boolean atualizarCliente(Cliente cliente){
-        int linha = this.lista.indexOf(cliente);
-        boolean result = this.lista.add(cliente);// não sei usar o lista.add
-        this.fireTableRowsUpdated(linha,linha);
-        return result;
-    }*/
-   
    
     public void atualizarTabela(List<Cliente> lista){
         System.out.println(lista);
@@ -96,6 +85,3 @@ public class ModeloTabelaCliente extends AbstractTableModel {
         return lista.get(linha);
     }
 }
- 
-
-//verificar sobre manter cliente - editar
